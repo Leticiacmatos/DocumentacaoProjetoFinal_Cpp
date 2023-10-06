@@ -1,0 +1,4 @@
+SUGESTÃO INICIAL PROJETO FINAL CPP 
+
+-> Através do QT, criar uma interface gráfica que envie comandos para o microcontrolador
+
