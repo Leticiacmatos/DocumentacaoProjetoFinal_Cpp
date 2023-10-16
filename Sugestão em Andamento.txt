@@ -1,4 +1,16 @@
 SUGESTÃO INICIAL PROJETO FINAL CPP 
 
--> Através do QT, criar uma interface gráfica que envie comandos para o microcontrolador
+-> Configurar uma interface gráfica através do QT que comunique via porta serial com Microcontrolador 
+-> Nesta interface deverá ser possível obter dados como temperatura
+-> Tempo em faltam para que os ovos sejam chocados 
+-> Configuração de temperatura 
+
+
+__________________________________________________________________________________________________
+
+v1.0.0 ->  
+ -> Configurado o QT para comunicação via Serial com Arduino
+ -> Configurado o codigo do arduino para receber e enviar dados via serial pro QT
+ -> Feito acionamento do led para aprender o funcionamento do QT com arduino (protoboard)
+ -> Configurado Proteus para emular porta Serial e conseguir comunicar com QT 
 
