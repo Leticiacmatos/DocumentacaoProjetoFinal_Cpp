@@ -1,0 +1,269 @@
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc2hILAb.s 			page 1
+
+
+   1               		.file	"main.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               		.section	.text._Z7getTickv,"ax",@progbits
+   9               		.weak	_Z7getTickv
+  11               	_Z7getTickv:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 60E0      		ldi r22,0
+  17 0002 70E0      		ldi r23,0
+  18 0004 CB01      		movw r24,r22
+  19               	/* epilogue start */
+  20 0006 0895      		ret
+  22               		.section	.rodata._Z13processarJsonPKc.str1.1,"aMS",@progbits,1
+  23               	.LC0:
+  24 0000 4C69 6761 		.string	"Ligado"
+  24      646F 00
+  25               	.LC1:
+  26 0007 4465 736C 		.string	"Desligado"
+  26      6967 6164 
+  26      6F00 
+  27               	.LC2:
+  28 0011 7B22 4944 		.string	"{\"ID_LED\": %d, \"estado\": %d}"
+  28      5F4C 4544 
+  28      223A 2025 
+  28      642C 2022 
+  28      6573 7461 
+  29               	.LC3:
+  30 002e 4944 2064 		.string	"ID do LED: %d\n"
+  30      6F20 4C45 
+  30      443A 2025 
+  30      640A 00
+  31               	.LC4:
+  32 003d 4573 7461 		.string	"Estado do LED: %s\n"
+  32      646F 2064 
+  32      6F20 4C45 
+  32      443A 2025 
+  32      730A 00
+  33               	.LC5:
+  34 0050 4572 726F 		.string	"Erro ao processar JSON"
+  34      2061 6F20 
+  34      7072 6F63 
+  34      6573 7361 
+  34      7220 4A53 
+  35               		.section	.text._Z13processarJsonPKc,"ax",@progbits
+  36               	.global	_Z13processarJsonPKc
+  38               	_Z13processarJsonPKc:
+  39 0000 CF93      		push r28
+  40 0002 DF93      		push r29
+  41 0004 00D0      		rcall .
+  42 0006 0F92      		push __tmp_reg__
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc2hILAb.s 			page 2
+
+
+  43 0008 CDB7      		in r28,__SP_L__
+  44 000a DEB7      		in r29,__SP_H__
+  45               	/* prologue: function */
+  46               	/* frame size = 3 */
+  47               	/* stack size = 5 */
+  48               	.L__stack_usage = 5
+  49 000c 9E01      		movw r18,r28
+  50 000e 2D5F      		subi r18,-3
+  51 0010 3F4F      		sbci r19,-1
+  52 0012 3F93      		push r19
+  53 0014 2F93      		push r18
+  54 0016 2250      		subi r18,2
+  55 0018 3109      		sbc r19,__zero_reg__
+  56 001a 3F93      		push r19
+  57 001c 2F93      		push r18
+  58 001e 20E0      		ldi r18,lo8(.LC2)
+  59 0020 30E0      		ldi r19,hi8(.LC2)
+  60 0022 3F93      		push r19
+  61 0024 2F93      		push r18
+  62 0026 9F93      		push r25
+  63 0028 8F93      		push r24
+  64 002a 0E94 0000 		call sscanf
+  65 002e 0FB6      		in __tmp_reg__,__SREG__
+  66 0030 F894      		cli
+  67 0032 DEBF      		out __SP_H__,r29
+  68 0034 0FBE      		out __SREG__,__tmp_reg__
+  69 0036 CDBF      		out __SP_L__,r28
+  70 0038 0297      		sbiw r24,2
+  71 003a 01F0      		breq .L7
+  72 003c 80E0      		ldi r24,lo8(.LC5)
+  73 003e 90E0      		ldi r25,hi8(.LC5)
+  74 0040 0E94 0000 		call puts
+  75 0044 00C0      		rjmp .L5
+  76               	.L7:
+  77 0046 8A81      		ldd r24,Y+2
+  78 0048 8F93      		push r24
+  79 004a 8981      		ldd r24,Y+1
+  80 004c 8F93      		push r24
+  81 004e 80E0      		ldi r24,lo8(.LC3)
+  82 0050 90E0      		ldi r25,hi8(.LC3)
+  83 0052 9F93      		push r25
+  84 0054 8F93      		push r24
+  85 0056 0E94 0000 		call printf
+  86 005a 0F90      		pop __tmp_reg__
+  87 005c 0F90      		pop __tmp_reg__
+  88 005e 0F90      		pop __tmp_reg__
+  89 0060 0F90      		pop __tmp_reg__
+  90 0062 8B81      		ldd r24,Y+3
+  91 0064 8823      		tst r24
+  92 0066 01F0      		breq .L6
+  93 0068 80E0      		ldi r24,lo8(.LC0)
+  94 006a 90E0      		ldi r25,hi8(.LC0)
+  95               	.L4:
+  96 006c 9F93      		push r25
+  97 006e 8F93      		push r24
+  98 0070 80E0      		ldi r24,lo8(.LC4)
+  99 0072 90E0      		ldi r25,hi8(.LC4)
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc2hILAb.s 			page 3
+
+
+ 100 0074 9F93      		push r25
+ 101 0076 8F93      		push r24
+ 102 0078 0E94 0000 		call printf
+ 103 007c 219A      		sbi 0x4,1
+ 104 007e 299A      		sbi 0x5,1
+ 105 0080 0F90      		pop __tmp_reg__
+ 106 0082 0F90      		pop __tmp_reg__
+ 107 0084 0F90      		pop __tmp_reg__
+ 108 0086 0F90      		pop __tmp_reg__
+ 109               	.L5:
+ 110               	.L6:
+ 111 0088 80E0      		ldi r24,lo8(.LC1)
+ 112 008a 90E0      		ldi r25,hi8(.LC1)
+ 113 008c 00C0      		rjmp .L4
+ 115               		.section	.text.main,"ax",@progbits
+ 116               	.global	main
+ 118               	main:
+ 119               	/* prologue: function */
+ 120               	/* frame size = 0 */
+ 121               	/* stack size = 0 */
+ 122               	.L__stack_usage = 0
+ 123 0000 40E8      		ldi r20,lo8(-128)
+ 124 0002 55E2      		ldi r21,lo8(37)
+ 125 0004 60E0      		ldi r22,0
+ 126 0006 70E0      		ldi r23,0
+ 127 0008 80E0      		ldi r24,lo8(usart0)
+ 128 000a 90E0      		ldi r25,hi8(usart0)
+ 129 000c 0E94 0000 		call _ZN6Usart011setBaudRateENS_8BaudRateE
+ 130 0010 E1EC      		ldi r30,lo8(-63)
+ 131 0012 F0E0      		ldi r31,0
+ 132 0014 8081      		ld r24,Z
+ 133 0016 8061      		ori r24,lo8(16)
+ 134 0018 8083      		st Z,r24
+ 135 001a 8081      		ld r24,Z
+ 136 001c 8860      		ori r24,lo8(8)
+ 137 001e 8083      		st Z,r24
+ 138 0020 8081      		ld r24,Z
+ 139 0022 8068      		ori r24,lo8(-128)
+ 140 0024 8083      		st Z,r24
+ 141 0026 80E0      		ldi r24,lo8(usart0)
+ 142 0028 90E0      		ldi r25,hi8(usart0)
+ 143 002a 0E94 0000 		call _ZN6Usart04initEv
+ 144               	/* #APP */
+ 145               	 ;  47 "main.cpp" 1
+ 146 002e 7894      		sei
+ 147               	 ;  0 "" 2
+ 148               	/* #NOAPP */
+ 149               	.L9:
+ 150 0030 8091 0000 		lds r24,receivedFlag
+ 151 0034 8823      		tst r24
+ 152 0036 01F0      		breq .L9
+ 153 0038 8091 0000 		lds r24,receivedStatus
+ 154 003c 8823      		tst r24
+ 155 003e 01F0      		breq .L13
+ 156 0040 1092 0000 		sts receivedFlag,__zero_reg__
+ 157 0044 00C0      		rjmp .L9
+ 158               	.L13:
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc2hILAb.s 			page 4
+
+
+ 159 0046 80E0      		ldi r24,lo8(receivedData)
+ 160 0048 90E0      		ldi r25,hi8(receivedData)
+ 161 004a 0E94 0000 		call _Z13processarJsonPKc
+ 163               		.section	.text._Z30usartReceptionCompleteCallbackv,"ax",@progbits
+ 164               	.global	_Z30usartReceptionCompleteCallbackv
+ 166               	_Z30usartReceptionCompleteCallbackv:
+ 167               	/* prologue: function */
+ 168               	/* frame size = 0 */
+ 169               	/* stack size = 0 */
+ 170               	.L__stack_usage = 0
+ 171 0000 60E0      		ldi r22,lo8(receivedStatus)
+ 172 0002 70E0      		ldi r23,hi8(receivedStatus)
+ 173 0004 80E0      		ldi r24,lo8(usart0)
+ 174 0006 90E0      		ldi r25,hi8(usart0)
+ 175 0008 0E94 0000 		call _ZN6Usart018getReceptionStatusEPNS_14ReceptionErrorE
+ 176 000c 8091 C600 		lds r24,198
+ 177 0010 8093 0000 		sts receivedData,r24
+ 178 0014 81E0      		ldi r24,lo8(1)
+ 179 0016 8093 0000 		sts receivedFlag,r24
+ 180 001a 8091 0000 		lds r24,receivedData
+ 181 001e 8C34      		cpi r24,lo8(76)
+ 182 0020 01F0      		breq .L16
+ 183               	.L14:
+ 184               	/* epilogue start */
+ 185 0022 0895      		ret
+ 186               	.L16:
+ 187 0024 219A      		sbi 0x4,1
+ 188 0026 299A      		sbi 0x5,1
+ 189 0028 00C0      		rjmp .L14
+ 191               	.global	ledInfo
+ 192               		.section	.bss.ledInfo,"aw",@nobits
+ 195               	ledInfo:
+ 196 0000 0000 00   		.zero	3
+ 197               	.global	receivedFlag
+ 198               		.section	.bss.receivedFlag,"aw",@nobits
+ 201               	receivedFlag:
+ 202 0000 00        		.zero	1
+ 203               	.global	receivedStatus
+ 204               		.section	.bss.receivedStatus,"aw",@nobits
+ 207               	receivedStatus:
+ 208 0000 00        		.zero	1
+ 209               	.global	receivedData
+ 210               		.section	.bss.receivedData,"aw",@nobits
+ 213               	receivedData:
+ 214 0000 00        		.zero	1
+ 215               		.ident	"GCC: (GNU) 12.1.0"
+ 216               	.global __do_copy_data
+ 217               	.global __do_clear_bss
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc2hILAb.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:2      *ABS*:000000000000003e __SP_H__
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:3      *ABS*:000000000000003d __SP_L__
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:4      *ABS*:000000000000003f __SREG__
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:5      *ABS*:0000000000000000 __tmp_reg__
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:6      *ABS*:0000000000000001 __zero_reg__
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:11     .text._Z7getTickv:0000000000000000 _Z7getTickv
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:38     .text._Z13processarJsonPKc:0000000000000000 _Z13processarJsonPKc
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:41     .text._Z13processarJsonPKc:0000000000000006 L0
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:118    .text.main:0000000000000000 main
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:201    .bss.receivedFlag:0000000000000000 receivedFlag
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:207    .bss.receivedStatus:0000000000000000 receivedStatus
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:213    .bss.receivedData:0000000000000000 receivedData
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:166    .text._Z30usartReceptionCompleteCallbackv:0000000000000000 _Z30usartReceptionCompleteCallbackv
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:195    .bss.ledInfo:0000000000000000 ledInfo
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:76     .text._Z13processarJsonPKc:0000000000000046 .L7
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:109    .text._Z13processarJsonPKc:0000000000000088 .L5
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:110    .text._Z13processarJsonPKc:0000000000000088 .L6
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:95     .text._Z13processarJsonPKc:000000000000006c .L4
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:149    .text.main:0000000000000030 .L9
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:158    .text.main:0000000000000046 .L13
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:186    .text._Z30usartReceptionCompleteCallbackv:0000000000000024 .L16
+C:\Users\letic\AppData\Local\Temp\cc2hILAb.s:183    .text._Z30usartReceptionCompleteCallbackv:0000000000000022 .L14
+
+UNDEFINED SYMBOLS
+sscanf
+puts
+printf
+usart0
+_ZN6Usart011setBaudRateENS_8BaudRateE
+_ZN6Usart04initEv
+_ZN6Usart018getReceptionStatusEPNS_14ReceptionErrorE
+__do_copy_data
+__do_clear_bss

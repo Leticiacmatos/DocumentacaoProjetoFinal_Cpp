@@ -1,0 +1,87 @@
+#define F_CPU 16000000UL
+
+#include "funsape/globalDefines.hpp"
+#include "funsape/device/hd44780.hpp"
+#include "funsape/peripheral/usart0.hpp"
+#include "funsape/peripheral/ArduinoJson-v6.21.3.h"
+
+// Declare as instâncias da classe Usart0
+Usart0 *usartDefaultHandler;
+Usart0 usart0;
+FILE usartStream;
+
+vuint8_t receivedData;
+volatile Usart0::ReceptionError receivedStatus;
+vbool_t receivedFlag = false;
+
+int usartTransmitStdWrapper(char data, FILE *stream);
+
+// Função para processar os dados JSON
+void processJson(const char* jsonString) {
+    // Criar um documento JSON para armazenar os dados
+    DynamicJsonDocument doc(static_cast<size_t>(256));
+
+    // Deserializar a string JSON
+    DeserializationError jsonError = deserializeJson(doc, jsonString);
+
+    if (jsonError) {
+        // Erro ao analisar JSON
+        usart0.sendData('E');  // Envia caractere de erro para indicar falha
+    } else {
+        // Acessando os campos do documento JSON
+        int ID_LED = doc["ID_LED"];
+        bool estado = doc["estado"];
+
+        // Adicione aqui a lógica para interpretar os valores e realizar ações
+        // (por exemplo, controlar LEDs, enviar comandos, etc.)
+
+        // Envia confirmação de sucesso
+        usart0.sendData('S');
+    }
+}
+
+int main() {
+    // UART configuration
+    usart0.setBaudRate(Usart0::BaudRate::BAUD_RATE_115200);
+    // usart0.enableReceiver();            //Habilita Receptor
+    usart0.enableTransmitter();         //Habilita Transmissor
+    // usart0.activateReceptionCompleteInterrupt();//Habilita interrupcao de recepcao completa
+    usart0.init();  //finaliza a configuracao
+
+    // Configura a função de transmissão padrão
+    usartDefaultHandler = &usart0;
+    fdev_setup_stream(&usartStream, usartTransmitStdWrapper, NULL, _FDEV_SETUP_WRITE);
+    stdout = &usartStream;
+
+    sei();
+
+    while (1) {
+        // Verifica se há dados disponíveis para leitura
+        if (usart0.isReceptionComplete()) {
+            // Lê os dados disponíveis
+            char receivedChar = usart0.receiveDataStd(stdin);
+
+            // Verifica se é o início de uma mensagem JSON
+            if (receivedChar == '{') {
+                char jsonString[256];  // Ajuste o tamanho conforme necessário
+                jsonString[0] = receivedChar;
+
+                // Lê o restante da mensagem até encontrar o caractere '}'
+                int index = 1;
+                while (usart0.isReceptionComplete() && index < sizeof(jsonString) - 1) {
+                    receivedChar = usart0.receiveDataStd(stdin);
+                    jsonString[index++] = receivedChar;
+                    if (receivedChar == '}') {
+                        jsonString[index] = '\0';  // Adiciona o terminador nulo
+                        break;
+                    }
+                }
+
+                // Processa a mensagem JSON
+                processJson(jsonString);
+            }
+        }
+    }
+
+    return 0;
+}

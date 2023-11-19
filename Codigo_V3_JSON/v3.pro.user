@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.3, 2023-11-16T00:44:37. -->
+<!-- Written by QtCreator 11.0.3, 2023-11-16T07:53:34. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -238,8 +238,9 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/letic/OneDrive/Documentos/codigos_projetoFinal_C++/v3/v3.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/letic/OneDrive/Documentos/codigos_projetoFinal_C++/v3/v3.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">v32</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/letic/OneDrive/Área de Trabalho/DocumentacaoProjetoFinal_Cpp/Codigo_V3_JSON/v3.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/letic/OneDrive/Área de Trabalho/DocumentacaoProjetoFinal_Cpp/Codigo_V3_JSON/v3.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

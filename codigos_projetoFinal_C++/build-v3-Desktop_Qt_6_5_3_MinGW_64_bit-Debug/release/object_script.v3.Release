@@ -1,0 +1,11 @@
+release/ConexaoArduino.o
+release/JsonMensagens.o
+release/Leds.o
+release/LogTxt.o
+release/main.o
+release/GraficaConexaoArduino.o
+release/moc_ConexaoArduino.o
+release/moc_GraficaConexaoArduino.o
+release/moc_JsonMensagens.o
+release/moc_Leds.o
+release/moc_LogTxt.o

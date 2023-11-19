@@ -1,0 +1,11 @@
+debug/ConexaoArduino.o
+debug/JsonMensagens.o
+debug/Leds.o
+debug/LogTxt.o
+debug/main.o
+debug/GraficaConexaoArduino.o
+debug/moc_ConexaoArduino.o
+debug/moc_GraficaConexaoArduino.o
+debug/moc_JsonMensagens.o
+debug/moc_Leds.o
+debug/moc_LogTxt.o

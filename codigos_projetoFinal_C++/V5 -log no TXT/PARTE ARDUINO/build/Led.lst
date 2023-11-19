@@ -1,0 +1,125 @@
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s 			page 1
+
+
+   1               		.file	"Led.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               		.section	.text._Z7getTickv,"ax",@progbits
+   9               		.weak	_Z7getTickv
+  11               	_Z7getTickv:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 60E0      		ldi r22,0
+  17 0002 70E0      		ldi r23,0
+  18 0004 CB01      		movw r24,r22
+  19               	/* epilogue start */
+  20 0006 0895      		ret
+  22               		.section	.text._ZN3Led8LigarLedEi,"ax",@progbits
+  23               	.global	_ZN3Led8LigarLedEi
+  25               	_ZN3Led8LigarLedEi:
+  26               	/* prologue: function */
+  27               	/* frame size = 0 */
+  28               	/* stack size = 0 */
+  29               	.L__stack_usage = 0
+  30 0000 862F      		mov r24,r22
+  31 0002 972F      		mov r25,r23
+  32 0004 8130      		cpi r24,1
+  33 0006 9105      		cpc r25,__zero_reg__
+  34 0008 01F0      		breq .L6
+  35 000a 8230      		cpi r24,2
+  36 000c 9105      		cpc r25,__zero_reg__
+  37 000e 01F4      		brne .L5
+  38 0010 229A      		sbi 0x4,2
+  39 0012 229A      		sbi 0x4,2
+  40 0014 0895      		ret
+  41               	.L6:
+  42 0016 219A      		sbi 0x4,1
+  43 0018 219A      		sbi 0x4,1
+  44 001a 0895      		ret
+  45               	.L5:
+  46 001c 0397      		sbiw r24,3
+  47 001e 01F4      		brne .L2
+  48 0020 239A      		sbi 0x4,3
+  49 0022 239A      		sbi 0x4,3
+  50               	.L2:
+  51               	/* epilogue start */
+  52 0024 0895      		ret
+  54               		.section	.text._ZN3LedC2Eib,"ax",@progbits
+  55               	.global	_ZN3LedC2Eib
+  57               	_ZN3LedC2Eib:
+  58 0000 0F93      		push r16
+  59 0002 1F93      		push r17
+  60 0004 CF93      		push r28
+  61 0006 DF93      		push r29
+  62 0008 00D0      		rcall .
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s 			page 2
+
+
+  63 000a 0F92      		push __tmp_reg__
+  64 000c CDB7      		in r28,__SP_L__
+  65 000e DEB7      		in r29,__SP_H__
+  66               	/* prologue: function */
+  67               	/* frame size = 3 */
+  68               	/* stack size = 7 */
+  69               	.L__stack_usage = 7
+  70 0010 082F      		mov r16,r24
+  71 0012 192F      		mov r17,r25
+  72 0014 F801      		movw r30,r16
+  73 0016 6083      		st Z,r22
+  74 0018 7183      		std Z+1,r23
+  75 001a 4283      		std Z+2,r20
+  76 001c 4111      		cpse r20,__zero_reg__
+  77 001e 00C0      		rjmp .L9
+  78               	.L7:
+  79               	/* epilogue start */
+  80 0020 0F90      		pop __tmp_reg__
+  81 0022 0F90      		pop __tmp_reg__
+  82 0024 0F90      		pop __tmp_reg__
+  83 0026 DF91      		pop r29
+  84 0028 CF91      		pop r28
+  85 002a 1F91      		pop r17
+  86 002c 0F91      		pop r16
+  87 002e 0895      		ret
+  88               	.L9:
+  89 0030 41E0      		ldi r20,lo8(1)
+  90 0032 CE01      		movw r24,r28
+  91 0034 0196      		adiw r24,1
+  92 0036 0E94 0000 		call _ZN3LedC1Eib
+  93 003a F801      		movw r30,r16
+  94 003c 6081      		ld r22,Z
+  95 003e 7181      		ldd r23,Z+1
+  96 0040 CE01      		movw r24,r28
+  97 0042 0196      		adiw r24,1
+  98 0044 0E94 0000 		call _ZN3Led8LigarLedEi
+  99 0048 00C0      		rjmp .L7
+ 101               	.global	_ZN3LedC1Eib
+ 102               		.set	_ZN3LedC1Eib,_ZN3LedC2Eib
+ 103               		.ident	"GCC: (GNU) 12.1.0"
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Led.cpp
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:2      *ABS*:000000000000003e __SP_H__
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:3      *ABS*:000000000000003d __SP_L__
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:4      *ABS*:000000000000003f __SREG__
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:5      *ABS*:0000000000000000 __tmp_reg__
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:6      *ABS*:0000000000000001 __zero_reg__
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:11     .text._Z7getTickv:0000000000000000 _Z7getTickv
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:25     .text._ZN3Led8LigarLedEi:0000000000000000 _ZN3Led8LigarLedEi
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:57     .text._ZN3LedC2Eib:0000000000000000 _ZN3LedC2Eib
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:62     .text._ZN3LedC2Eib:000000000000000a L0
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:57     .text._ZN3LedC2Eib:0000000000000000 _ZN3LedC1Eib
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:41     .text._ZN3Led8LigarLedEi:0000000000000016 .L6
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:45     .text._ZN3Led8LigarLedEi:000000000000001c .L5
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:50     .text._ZN3Led8LigarLedEi:0000000000000024 .L2
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:88     .text._ZN3LedC2Eib:0000000000000030 .L9
+C:\Users\letic\AppData\Local\Temp\ccrxM6Lc.s:78     .text._ZN3LedC2Eib:0000000000000020 .L7
+
+NO UNDEFINED SYMBOLS
