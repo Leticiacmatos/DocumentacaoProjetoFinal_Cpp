@@ -1,0 +1,141 @@
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s 			page 1
+
+
+   1               		.file	"main.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               		.section	.text._Z7getTickv,"ax",@progbits
+   9               		.weak	_Z7getTickv
+  11               	_Z7getTickv:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 60E0      		ldi r22,0
+  17 0002 70E0      		ldi r23,0
+  18 0004 CB01      		movw r24,r22
+  19               	/* epilogue start */
+  20 0006 0895      		ret
+  22               		.section	.text.main,"ax",@progbits
+  23               	.global	main
+  25               	main:
+  26 0000 0F92      		push __tmp_reg__
+  27 0002 CDB7      		in r28,__SP_L__
+  28 0004 DEB7      		in r29,__SP_H__
+  29               	/* prologue: function */
+  30               	/* frame size = 1 */
+  31               	/* stack size = 1 */
+  32               	.L__stack_usage = 1
+  33 0006 209A      		sbi 0x4,0
+  34 0008 40E8      		ldi r20,lo8(-128)
+  35 000a 55E2      		ldi r21,lo8(37)
+  36 000c 60E0      		ldi r22,0
+  37 000e 70E0      		ldi r23,0
+  38 0010 80E0      		ldi r24,lo8(usart0)
+  39 0012 90E0      		ldi r25,hi8(usart0)
+  40 0014 0E94 0000 		call _ZN6Usart011setBaudRateENS_8BaudRateE
+  41 0018 E1EC      		ldi r30,lo8(-63)
+  42 001a F0E0      		ldi r31,0
+  43 001c 8081      		ld r24,Z
+  44 001e 8061      		ori r24,lo8(16)
+  45 0020 8083      		st Z,r24
+  46 0022 8081      		ld r24,Z
+  47 0024 8860      		ori r24,lo8(8)
+  48 0026 8083      		st Z,r24
+  49 0028 8081      		ld r24,Z
+  50 002a 8068      		ori r24,lo8(-128)
+  51 002c 8083      		st Z,r24
+  52 002e 80E0      		ldi r24,lo8(usart0)
+  53 0030 90E0      		ldi r25,hi8(usart0)
+  54 0032 0E94 0000 		call _ZN6Usart04initEv
+  55               	/* #APP */
+  56               	 ;  26 "main.cpp" 1
+  57 0036 7894      		sei
+  58               	 ;  0 "" 2
+  59               	/* #NOAPP */
+  60 0038 00C0      		rjmp .L3
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s 			page 2
+
+
+  61               	.L4:
+  62 003a 1092 0000 		sts receivedFlag,__zero_reg__
+  63               	.L3:
+  64 003e 8091 0000 		lds r24,receivedFlag
+  65 0042 8823      		tst r24
+  66 0044 01F0      		breq .L3
+  67 0046 8091 0000 		lds r24,receivedStatus
+  68 004a 8111      		cpse r24,__zero_reg__
+  69 004c 00C0      		rjmp .L4
+  70 004e CE01      		movw r24,r28
+  71 0050 0196      		adiw r24,1
+  72 0052 0E94 0000 		call _ZN13ProcessarJSONC1Ev
+  73 0056 60E0      		ldi r22,lo8(receivedData)
+  74 0058 70E0      		ldi r23,hi8(receivedData)
+  75 005a CE01      		movw r24,r28
+  76 005c 0196      		adiw r24,1
+  77 005e 0E94 0000 		call _ZN13ProcessarJSON12processarMsgEPKc
+  78 0062 289A      		sbi 0x5,0
+  79 0064 00C0      		rjmp .L4
+  81               		.section	.text._Z30usartReceptionCompleteCallbackv,"ax",@progbits
+  82               	.global	_Z30usartReceptionCompleteCallbackv
+  84               	_Z30usartReceptionCompleteCallbackv:
+  85               	/* prologue: function */
+  86               	/* frame size = 0 */
+  87               	/* stack size = 0 */
+  88               	.L__stack_usage = 0
+  89 0000 60E0      		ldi r22,lo8(receivedStatus)
+  90 0002 70E0      		ldi r23,hi8(receivedStatus)
+  91 0004 80E0      		ldi r24,lo8(usart0)
+  92 0006 90E0      		ldi r25,hi8(usart0)
+  93 0008 0E94 0000 		call _ZN6Usart018getReceptionStatusEPNS_14ReceptionErrorE
+  94 000c 8091 C600 		lds r24,198
+  95 0010 8093 0000 		sts receivedData,r24
+  96 0014 81E0      		ldi r24,lo8(1)
+  97 0016 8093 0000 		sts receivedFlag,r24
+  98               	/* epilogue start */
+  99 001a 0895      		ret
+ 101               	.global	receivedFlag
+ 102               		.section	.bss.receivedFlag,"aw",@nobits
+ 105               	receivedFlag:
+ 106 0000 00        		.zero	1
+ 107               	.global	receivedStatus
+ 108               		.section	.bss.receivedStatus,"aw",@nobits
+ 111               	receivedStatus:
+ 112 0000 00        		.zero	1
+ 113               	.global	receivedData
+ 114               		.section	.bss.receivedData,"aw",@nobits
+ 117               	receivedData:
+ 118 0000 00        		.zero	1
+ 119               		.ident	"GCC: (GNU) 12.1.0"
+ 120               	.global __do_clear_bss
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:2      *ABS*:000000000000003e __SP_H__
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:3      *ABS*:000000000000003d __SP_L__
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:4      *ABS*:000000000000003f __SREG__
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:5      *ABS*:0000000000000000 __tmp_reg__
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:6      *ABS*:0000000000000001 __zero_reg__
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:11     .text._Z7getTickv:0000000000000000 _Z7getTickv
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:25     .text.main:0000000000000000 main
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:105    .bss.receivedFlag:0000000000000000 receivedFlag
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:111    .bss.receivedStatus:0000000000000000 receivedStatus
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:117    .bss.receivedData:0000000000000000 receivedData
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:84     .text._Z30usartReceptionCompleteCallbackv:0000000000000000 _Z30usartReceptionCompleteCallbackv
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:63     .text.main:000000000000003e .L3
+C:\Users\letic\AppData\Local\Temp\ccAC5YMZ.s:61     .text.main:000000000000003a .L4
+
+UNDEFINED SYMBOLS
+usart0
+_ZN6Usart011setBaudRateENS_8BaudRateE
+_ZN6Usart04initEv
+_ZN13ProcessarJSONC1Ev
+_ZN13ProcessarJSON12processarMsgEPKc
+_ZN6Usart018getReceptionStatusEPNS_14ReceptionErrorE
+__do_clear_bss

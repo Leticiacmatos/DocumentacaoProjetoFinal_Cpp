@@ -1,0 +1,94 @@
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s 			page 1
+
+
+   1               		.file	"Led.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               		.section	.text._Z7getTickv,"ax",@progbits
+   9               		.weak	_Z7getTickv
+  11               	_Z7getTickv:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 60E0      		ldi r22,0
+  17 0002 70E0      		ldi r23,0
+  18 0004 CB01      		movw r24,r22
+  19               	/* epilogue start */
+  20 0006 0895      		ret
+  22               		.section	.text._ZN3Led8LigarLedEi,"ax",@progbits
+  23               	.global	_ZN3Led8LigarLedEi
+  25               	_ZN3Led8LigarLedEi:
+  26               	/* prologue: function */
+  27               	/* frame size = 0 */
+  28               	/* stack size = 0 */
+  29               	.L__stack_usage = 0
+  30 0000 862F      		mov r24,r22
+  31 0002 972F      		mov r25,r23
+  32 0004 8130      		cpi r24,1
+  33 0006 9105      		cpc r25,__zero_reg__
+  34 0008 01F0      		breq .L6
+  35 000a 8230      		cpi r24,2
+  36 000c 9105      		cpc r25,__zero_reg__
+  37 000e 01F4      		brne .L5
+  38 0010 229A      		sbi 0x4,2
+  39 0012 2A9A      		sbi 0x5,2
+  40 0014 0895      		ret
+  41               	.L6:
+  42 0016 219A      		sbi 0x4,1
+  43 0018 299A      		sbi 0x5,1
+  44 001a 0895      		ret
+  45               	.L5:
+  46 001c 0397      		sbiw r24,3
+  47 001e 01F4      		brne .L2
+  48 0020 239A      		sbi 0x4,3
+  49 0022 2B9A      		sbi 0x5,3
+  50               	.L2:
+  51               	/* epilogue start */
+  52 0024 0895      		ret
+  54               		.section	.text._ZN3LedC2Eib,"ax",@progbits
+  55               	.global	_ZN3LedC2Eib
+  57               	_ZN3LedC2Eib:
+  58               	/* prologue: function */
+  59               	/* frame size = 0 */
+  60               	/* stack size = 0 */
+  61               	.L__stack_usage = 0
+  62 0000 4111      		cpse r20,__zero_reg__
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s 			page 2
+
+
+  63 0002 00C0      		rjmp .L9
+  64               	.L7:
+  65               	/* epilogue start */
+  66 0004 0895      		ret
+  67               	.L9:
+  68 0006 0E94 0000 		call _ZN3Led8LigarLedEi
+  69 000a 00C0      		rjmp .L7
+  71               	.global	_ZN3LedC1Eib
+  72               		.set	_ZN3LedC1Eib,_ZN3LedC2Eib
+  73               		.ident	"GCC: (GNU) 12.1.0"
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Led.cpp
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:2      *ABS*:000000000000003e __SP_H__
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:3      *ABS*:000000000000003d __SP_L__
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:4      *ABS*:000000000000003f __SREG__
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:5      *ABS*:0000000000000000 __tmp_reg__
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:6      *ABS*:0000000000000001 __zero_reg__
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:11     .text._Z7getTickv:0000000000000000 _Z7getTickv
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:25     .text._ZN3Led8LigarLedEi:0000000000000000 _ZN3Led8LigarLedEi
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:57     .text._ZN3LedC2Eib:0000000000000000 _ZN3LedC2Eib
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:57     .text._ZN3LedC2Eib:0000000000000000 _ZN3LedC1Eib
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:41     .text._ZN3Led8LigarLedEi:0000000000000016 .L6
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:45     .text._ZN3Led8LigarLedEi:000000000000001c .L5
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:50     .text._ZN3Led8LigarLedEi:0000000000000024 .L2
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:67     .text._ZN3LedC2Eib:0000000000000006 .L9
+C:\Users\letic\AppData\Local\Temp\ccvQzqfm.s:64     .text._ZN3LedC2Eib:0000000000000004 .L7
+
+NO UNDEFINED SYMBOLS

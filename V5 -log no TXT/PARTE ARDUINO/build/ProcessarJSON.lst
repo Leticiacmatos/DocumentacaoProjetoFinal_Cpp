@@ -1,0 +1,87 @@
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s 			page 1
+
+
+   1               		.file	"ProcessarJSON.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               		.section	.text._Z7getTickv,"ax",@progbits
+   9               		.weak	_Z7getTickv
+  11               	_Z7getTickv:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 60E0      		ldi r22,0
+  17 0002 70E0      		ldi r23,0
+  18 0004 CB01      		movw r24,r22
+  19               	/* epilogue start */
+  20 0006 0895      		ret
+  22               		.section	.text._ZN13ProcessarJSONC2Ev,"ax",@progbits
+  23               	.global	_ZN13ProcessarJSONC2Ev
+  25               	_ZN13ProcessarJSONC2Ev:
+  26               	/* prologue: function */
+  27               	/* frame size = 0 */
+  28               	/* stack size = 0 */
+  29               	.L__stack_usage = 0
+  30               	/* epilogue start */
+  31 0000 0895      		ret
+  33               	.global	_ZN13ProcessarJSONC1Ev
+  34               		.set	_ZN13ProcessarJSONC1Ev,_ZN13ProcessarJSONC2Ev
+  35               		.section	.rodata._ZN13ProcessarJSON12processarMsgEPKc.str1.1,"aMS",@progbits,1
+  36               	.LC0:
+  37 0000 4C31 00   		.string	"L1"
+  38               		.section	.text._ZN13ProcessarJSON12processarMsgEPKc,"ax",@progbits
+  39               	.global	_ZN13ProcessarJSON12processarMsgEPKc
+  41               	_ZN13ProcessarJSON12processarMsgEPKc:
+  42               	/* prologue: function */
+  43               	/* frame size = 0 */
+  44               	/* stack size = 0 */
+  45               	.L__stack_usage = 0
+  46 0000 CB01      		movw r24,r22
+  47 0002 60E0      		ldi r22,lo8(.LC0)
+  48 0004 70E0      		ldi r23,hi8(.LC0)
+  49 0006 0E94 0000 		call strstr
+  50 000a 892B      		or r24,r25
+  51 000c 01F0      		breq .L3
+  52 000e 289A      		sbi 0x5,0
+  53               	.L3:
+  54               	/* epilogue start */
+  55 0010 0895      		ret
+  57               		.section	.text._ZN13ProcessarJSON6msgLedEPKc,"ax",@progbits
+  58               	.global	_ZN13ProcessarJSON6msgLedEPKc
+  60               	_ZN13ProcessarJSON6msgLedEPKc:
+  61               	/* prologue: function */
+  62               	/* frame size = 0 */
+  63               	/* stack size = 0 */
+  64               	.L__stack_usage = 0
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s 			page 2
+
+
+  65               	/* epilogue start */
+  66 0000 0895      		ret
+  68               		.ident	"GCC: (GNU) 12.1.0"
+  69               	.global __do_copy_data
+GAS LISTING C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 ProcessarJSON.cpp
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:2      *ABS*:000000000000003e __SP_H__
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:3      *ABS*:000000000000003d __SP_L__
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:4      *ABS*:000000000000003f __SREG__
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:5      *ABS*:0000000000000000 __tmp_reg__
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:6      *ABS*:0000000000000001 __zero_reg__
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:11     .text._Z7getTickv:0000000000000000 _Z7getTickv
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:25     .text._ZN13ProcessarJSONC2Ev:0000000000000000 _ZN13ProcessarJSONC2Ev
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:25     .text._ZN13ProcessarJSONC2Ev:0000000000000000 _ZN13ProcessarJSONC1Ev
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:41     .text._ZN13ProcessarJSON12processarMsgEPKc:0000000000000000 _ZN13ProcessarJSON12processarMsgEPKc
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:60     .text._ZN13ProcessarJSON6msgLedEPKc:0000000000000000 _ZN13ProcessarJSON6msgLedEPKc
+C:\Users\letic\AppData\Local\Temp\ccbEQtAP.s:53     .text._ZN13ProcessarJSON12processarMsgEPKc:0000000000000010 .L3
+
+UNDEFINED SYMBOLS
+strstr
+__do_copy_data
