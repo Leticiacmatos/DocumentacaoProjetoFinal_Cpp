@@ -1,0 +1,561 @@
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 1
+
+
+   1               		.file	"main.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               		.section	.text._Z7getTickv,"ax",@progbits
+   9               		.weak	_Z7getTickv
+  11               	_Z7getTickv:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 60E0      		ldi r22,0
+  17 0002 70E0      		ldi r23,0
+  18 0004 CB01      		movw r24,r22
+  19               	/* epilogue start */
+  20 0006 0895      		ret
+  22               		.section	.text.main,"ax",@progbits
+  23               	.global	main
+  25               	main:
+  26 0000 CDB7      		in r28,__SP_L__
+  27 0002 DEB7      		in r29,__SP_H__
+  28 0004 AE97      		sbiw r28,46
+  29 0006 0FB6      		in __tmp_reg__,__SREG__
+  30 0008 F894      		cli
+  31 000a DEBF      		out __SP_H__,r29
+  32 000c 0FBE      		out __SREG__,__tmp_reg__
+  33 000e CDBF      		out __SP_L__,r28
+  34               	/* prologue: function */
+  35               	/* frame size = 46 */
+  36               	/* stack size = 46 */
+  37               	.L__stack_usage = 46
+  38 0010 80E0      		ldi r24,lo8(usart0)
+  39 0012 90E0      		ldi r25,hi8(usart0)
+  40 0014 0E94 0000 		call _ZN6Usart04initEv
+  41 0018 E1EC      		ldi r30,lo8(-63)
+  42 001a F0E0      		ldi r31,0
+  43 001c 8081      		ld r24,Z
+  44 001e 8860      		ori r24,lo8(8)
+  45 0020 8083      		st Z,r24
+  46 0022 8081      		ld r24,Z
+  47 0024 8061      		ori r24,lo8(16)
+  48 0026 8083      		st Z,r24
+  49 0028 8081      		ld r24,Z
+  50 002a 8068      		ori r24,lo8(-128)
+  51 002c 8083      		st Z,r24
+  52 002e E0E0      		ldi r30,lo8(__iob)
+  53 0030 F0E0      		ldi r31,hi8(__iob)
+  54 0032 80E0      		ldi r24,lo8(usartStream)
+  55 0034 90E0      		ldi r25,hi8(usartStream)
+  56 0036 9583      		std Z+5,r25
+  57 0038 8483      		std Z+4,r24
+  58 003a 9383      		std Z+3,r25
+  59 003c 8283      		std Z+2,r24
+  60 003e 9183      		std Z+1,r25
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 2
+
+
+  61 0040 8083      		st Z,r24
+  62               	/* #APP */
+  63               	 ;  22 "main.cpp" 1
+  64 0042 7894      		sei
+  65               	 ;  0 "" 2
+  66               	/* #NOAPP */
+  67 0044 E0E0      		ldi r30,lo8(circBuffer)
+  68 0046 F0E0      		ldi r31,hi8(circBuffer)
+  69 0048 8081      		ld r24,Z
+  70 004a 8862      		ori r24,lo8(40)
+  71 004c 8064      		ori r24,lo8(1<<6)
+  72 004e 8083      		st Z,r24
+  73 0050 8381      		ldd r24,Z+3
+  74 0052 9481      		ldd r25,Z+4
+  75 0054 0097      		sbiw r24,0
+  76 0056 01F0      		breq .L3
+  77 0058 0E94 0000 		call free
+  78               	.L3:
+  79 005c 00E0      		ldi r16,lo8(circBuffer)
+  80 005e 10E0      		ldi r17,hi8(circBuffer)
+  81 0060 D801      		movw r26,r16
+  82 0062 8C91      		ld r24,X
+  83 0064 8160      		ori r24,lo8(1)
+  84 0066 1296      		adiw r26,1+1
+  85 0068 1C92      		st X,__zero_reg__
+  86 006a 1E92      		st -X,__zero_reg__
+  87 006c 1197      		sbiw r26,1
+  88 006e 1A96      		adiw r26,9+1
+  89 0070 1C92      		st X,__zero_reg__
+  90 0072 1E92      		st -X,__zero_reg__
+  91 0074 1997      		sbiw r26,9
+  92 0076 897F      		andi r24,lo8(-7)
+  93 0078 8F7E      		andi r24,lo8(~(1<<4))
+  94 007a 8C93      		st X,r24
+  95 007c 1696      		adiw r26,5+1
+  96 007e 1C92      		st X,__zero_reg__
+  97 0080 1E92      		st -X,__zero_reg__
+  98 0082 1597      		sbiw r26,5
+  99 0084 1896      		adiw r26,7+1
+ 100 0086 1C92      		st X,__zero_reg__
+ 101 0088 1E92      		st -X,__zero_reg__
+ 102 008a 1797      		sbiw r26,7
+ 103 008c 61E0      		ldi r22,lo8(1)
+ 104 008e 70E0      		ldi r23,0
+ 105 0090 82E3      		ldi r24,lo8(50)
+ 106 0092 90E0      		ldi r25,0
+ 107 0094 0E94 0000 		call calloc
+ 108 0098 282F      		mov r18,r24
+ 109 009a 392F      		mov r19,r25
+ 110 009c F801      		movw r30,r16
+ 111 009e 3483      		std Z+4,r19
+ 112 00a0 2383      		std Z+3,r18
+ 113 00a2 232B      		or r18,r19
+ 114 00a4 01F0      		breq .L4
+ 115 00a6 8081      		ld r24,Z
+ 116 00a8 22E3      		ldi r18,lo8(50)
+ 117 00aa 30E0      		ldi r19,0
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 3
+
+
+ 118 00ac 3283      		std Z+2,r19
+ 119 00ae 2183      		std Z+1,r18
+ 120 00b0 8460      		ori r24,lo8(4)
+ 121 00b2 877D      		andi r24,lo8(-41)
+ 122 00b4 8F7B      		andi r24,lo8(~(1<<6))
+ 123 00b6 8083      		st Z,r24
+ 124               	.L4:
+ 125 00b8 20E0      		ldi r18,0
+ 126 00ba 00E0      		ldi r16,lo8(circBuffer)
+ 127 00bc 10E0      		ldi r17,hi8(circBuffer)
+ 128 00be EE24      		clr r14
+ 129 00c0 E394      		inc r14
+ 130 00c2 F12C      		mov r15,__zero_reg__
+ 131 00c4 00C0      		rjmp .L5
+ 132               	.L9:
+ 133 00c6 E1E0      		ldi r30,lo8(1)
+ 134 00c8 F0E0      		ldi r31,0
+ 135 00ca EC0F      		add r30,r28
+ 136 00cc FD1F      		adc r31,r29
+ 137 00ce E20F      		add r30,r18
+ 138 00d0 F11D      		adc r31,__zero_reg__
+ 139 00d2 4083      		st Z,r20
+ 140 00d4 2F5F      		subi r18,lo8(-(1))
+ 141 00d6 00C0      		rjmp .L5
+ 142               	.L10:
+ 143 00d8 D801      		movw r26,r16
+ 144 00da 8C91      		ld r24,X
+ 145 00dc 30FB      		bst r19,0
+ 146 00de 80F9      		bld r24,0
+ 147 00e0 877F      		andi r24,lo8(~(1<<3))
+ 148 00e2 8C93      		st X,r24
+ 149 00e4 4D30      		cpi r20,lo8(13)
+ 150 00e6 01F4      		brne .L9
+ 151 00e8 E1E0      		ldi r30,lo8(1)
+ 152 00ea F0E0      		ldi r31,0
+ 153 00ec EC0F      		add r30,r28
+ 154 00ee FD1F      		adc r31,r29
+ 155 00f0 E20F      		add r30,r18
+ 156 00f2 F11D      		adc r31,__zero_reg__
+ 157 00f4 1082      		st Z,__zero_reg__
+ 158 00f6 9981      		ldd r25,Y+1
+ 159 00f8 80E0      		ldi r24,0
+ 160 00fa 9D33      		cpi r25,lo8(61)
+ 161 00fc 01F0      		breq .L8
+ 162 00fe 80E0      		ldi r24,0
+ 163               	.L7:
+ 164 0100 282F      		mov r18,r24
+ 165 0102 8F5F      		subi r24,lo8(-(1))
+ 166 0104 E4E2      		ldi r30,lo8(36)
+ 167 0106 F0E0      		ldi r31,0
+ 168 0108 EC0F      		add r30,r28
+ 169 010a FD1F      		adc r31,r29
+ 170 010c E20F      		add r30,r18
+ 171 010e F11D      		adc r31,__zero_reg__
+ 172 0110 9083      		st Z,r25
+ 173 0112 E1E0      		ldi r30,lo8(1)
+ 174 0114 F0E0      		ldi r31,0
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 4
+
+
+ 175 0116 EC0F      		add r30,r28
+ 176 0118 FD1F      		adc r31,r29
+ 177 011a E80F      		add r30,r24
+ 178 011c F11D      		adc r31,__zero_reg__
+ 179 011e 9081      		ld r25,Z
+ 180 0120 9D33      		cpi r25,lo8(61)
+ 181 0122 01F4      		brne .L7
+ 182               	.L8:
+ 183 0124 E4E2      		ldi r30,lo8(36)
+ 184 0126 F0E0      		ldi r31,0
+ 185 0128 EC0F      		add r30,r28
+ 186 012a FD1F      		adc r31,r29
+ 187 012c E80F      		add r30,r24
+ 188 012e F11D      		adc r31,__zero_reg__
+ 189 0130 1082      		st Z,__zero_reg__
+ 190 0132 91E0      		ldi r25,lo8(1)
+ 191 0134 980F      		add r25,r24
+ 192 0136 E1E0      		ldi r30,lo8(1)
+ 193 0138 F0E0      		ldi r31,0
+ 194 013a EC0F      		add r30,r28
+ 195 013c FD1F      		adc r31,r29
+ 196 013e E90F      		add r30,r25
+ 197 0140 F11D      		adc r31,__zero_reg__
+ 198 0142 2081      		ld r18,Z
+ 199 0144 2223      		tst r18
+ 200 0146 01F4      		brne .+2
+ 201 0148 00C0      		rjmp .L18
+ 202 014a 90E0      		ldi r25,0
+ 203 014c 8E5F      		subi r24,lo8(-(2))
+ 204               	.L13:
+ 205 014e EAE1      		ldi r30,lo8(26)
+ 206 0150 F0E0      		ldi r31,0
+ 207 0152 EC0F      		add r30,r28
+ 208 0154 FD1F      		adc r31,r29
+ 209 0156 E90F      		add r30,r25
+ 210 0158 F11D      		adc r31,__zero_reg__
+ 211 015a 2083      		st Z,r18
+ 212 015c 282F      		mov r18,r24
+ 213 015e 290F      		add r18,r25
+ 214 0160 E1E0      		ldi r30,lo8(1)
+ 215 0162 F0E0      		ldi r31,0
+ 216 0164 EC0F      		add r30,r28
+ 217 0166 FD1F      		adc r31,r29
+ 218 0168 E20F      		add r30,r18
+ 219 016a F11D      		adc r31,__zero_reg__
+ 220 016c 9F5F      		subi r25,lo8(-(1))
+ 221 016e 2081      		ld r18,Z
+ 222 0170 2111      		cpse r18,__zero_reg__
+ 223 0172 00C0      		rjmp .L13
+ 224               	.L12:
+ 225 0174 EAE1      		ldi r30,lo8(26)
+ 226 0176 F0E0      		ldi r31,0
+ 227 0178 EC0F      		add r30,r28
+ 228 017a FD1F      		adc r31,r29
+ 229 017c E90F      		add r30,r25
+ 230 017e F11D      		adc r31,__zero_reg__
+ 231 0180 1082      		st Z,__zero_reg__
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 5
+
+
+ 232 0182 AE01      		movw r20,r28
+ 233 0184 465E      		subi r20,-26
+ 234 0186 5F4F      		sbci r21,-1
+ 235 0188 BE01      		movw r22,r28
+ 236 018a 6C5D      		subi r22,-36
+ 237 018c 7F4F      		sbci r23,-1
+ 238 018e CE01      		movw r24,r28
+ 239 0190 8E96      		adiw r24,46
+ 240 0192 0E94 0000 		call _ZN16ProcessarPackageC1EPcS0_
+ 241 0196 2F2D      		mov r18,r15
+ 242               	.L5:
+ 243 0198 D801      		movw r26,r16
+ 244 019a 1C96      		adiw r26,11+1
+ 245 019c 1C92      		st X,__zero_reg__
+ 246 019e 1E92      		st -X,__zero_reg__
+ 247 01a0 1B97      		sbiw r26,11
+ 248 01a2 8C91      		ld r24,X
+ 249 01a4 80FD      		sbrc r24,0
+ 250 01a6 00C0      		rjmp .L5
+ 251 01a8 4F2D      		mov r20,r15
+ 252 01aa 82FF      		sbrs r24,2
+ 253 01ac 00C0      		rjmp .L9
+ 254 01ae 83FD      		sbrc r24,3
+ 255 01b0 00C0      		rjmp .L9
+ 256 01b2 85FD      		sbrc r24,5
+ 257 01b4 00C0      		rjmp .L9
+ 258 01b6 382F      		mov r19,r24
+ 259 01b8 3860      		ori r19,lo8(1<<3)
+ 260 01ba 3C93      		st X,r19
+ 261 01bc 1596      		adiw r26,5
+ 262 01be 8D91      		ld r24,X+
+ 263 01c0 9C91      		ld r25,X
+ 264 01c2 1697      		sbiw r26,5+1
+ 265 01c4 1396      		adiw r26,3
+ 266 01c6 ED91      		ld r30,X+
+ 267 01c8 FC91      		ld r31,X
+ 268 01ca 1497      		sbiw r26,3+1
+ 269 01cc E80F      		add r30,r24
+ 270 01ce F91F      		adc r31,r25
+ 271 01d0 4081      		ld r20,Z
+ 272 01d2 0196      		adiw r24,1
+ 273 01d4 1196      		adiw r26,1
+ 274 01d6 6D91      		ld r22,X+
+ 275 01d8 7C91      		ld r23,X
+ 276 01da 0E94 0000 		call __udivmodhi4
+ 277 01de F801      		movw r30,r16
+ 278 01e0 9683      		std Z+6,r25
+ 279 01e2 8583      		std Z+5,r24
+ 280 01e4 8185      		ldd r24,Z+9
+ 281 01e6 9285      		ldd r25,Z+10
+ 282 01e8 0197      		sbiw r24,1
+ 283 01ea 9287      		std Z+10,r25
+ 284 01ec 8187      		std Z+9,r24
+ 285 01ee 3D7F      		andi r19,lo8(~(1<<1))
+ 286 01f0 3083      		st Z,r19
+ 287 01f2 3E2D      		mov r19,r14
+ 288 01f4 892B      		or r24,r25
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 6
+
+
+ 289 01f6 01F4      		brne .+2
+ 290 01f8 00C0      		rjmp .L10
+ 291 01fa 3F2D      		mov r19,r15
+ 292 01fc 00C0      		rjmp .L10
+ 293               	.L18:
+ 294 01fe 922F      		mov r25,r18
+ 295 0200 00C0      		rjmp .L12
+ 297               		.section	.text._Z30usartReceptionCompleteCallbackv,"ax",@progbits
+ 298               	.global	_Z30usartReceptionCompleteCallbackv
+ 300               	_Z30usartReceptionCompleteCallbackv:
+ 301 0000 CF93      		push r28
+ 302 0002 DF93      		push r29
+ 303               	/* prologue: function */
+ 304               	/* frame size = 0 */
+ 305               	/* stack size = 2 */
+ 306               	.L__stack_usage = 2
+ 307 0004 9091 C600 		lds r25,198
+ 308 0008 8091 0000 		lds r24,circBuffer
+ 309 000c 82FF      		sbrs r24,2
+ 310 000e 00C0      		rjmp .L30
+ 311 0010 83FD      		sbrc r24,3
+ 312 0012 00C0      		rjmp .L31
+ 313 0014 86FD      		sbrc r24,6
+ 314 0016 00C0      		rjmp .L32
+ 315 0018 E0E0      		ldi r30,lo8(circBuffer)
+ 316 001a F0E0      		ldi r31,hi8(circBuffer)
+ 317 001c 8860      		ori r24,lo8(1<<3)
+ 318 001e 8083      		st Z,r24
+ 319 0020 81FB      		bst r24,1
+ 320 0022 2227      		clr r18
+ 321 0024 20F9      		bld r18,0
+ 322 0026 2111      		cpse r18,__zero_reg__
+ 323 0028 00C0      		rjmp .L24
+ 324 002a A381      		ldd r26,Z+3
+ 325 002c B481      		ldd r27,Z+4
+ 326 002e 4781      		ldd r20,Z+7
+ 327 0030 5085      		ldd r21,Z+8
+ 328 0032 A40F      		add r26,r20
+ 329 0034 B51F      		adc r27,r21
+ 330 0036 9C93      		st X,r25
+ 331 0038 C181      		ldd r28,Z+1
+ 332 003a D281      		ldd r29,Z+2
+ 333 003c 8781      		ldd r24,Z+7
+ 334 003e 9085      		ldd r25,Z+8
+ 335 0040 0196      		adiw r24,1
+ 336 0042 BE01      		movw r22,r28
+ 337 0044 0E94 0000 		call __udivmodhi4
+ 338 0048 9087      		std Z+8,r25
+ 339 004a 8783      		std Z+7,r24
+ 340 004c 8185      		ldd r24,Z+9
+ 341 004e 9285      		ldd r25,Z+10
+ 342 0050 0196      		adiw r24,1
+ 343 0052 9287      		std Z+10,r25
+ 344 0054 8187      		std Z+9,r24
+ 345 0056 31E0      		ldi r19,lo8(1)
+ 346 0058 C817      		cp r28,r24
+ 347 005a D907      		cpc r29,r25
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 7
+
+
+ 348 005c 01F0      		breq .L26
+ 349 005e 30E0      		ldi r19,0
+ 350               	.L26:
+ 351 0060 E0E0      		ldi r30,lo8(circBuffer)
+ 352 0062 F0E0      		ldi r31,hi8(circBuffer)
+ 353 0064 8081      		ld r24,Z
+ 354 0066 30FB      		bst r19,0
+ 355 0068 81F9      		bld r24,1
+ 356 006a 8E7F      		andi r24,lo8(-2)
+ 357 006c 822B      		or r24,r18
+ 358 006e 877F      		andi r24,lo8(~(1<<3))
+ 359 0070 8083      		st Z,r24
+ 360 0072 80E0      		ldi r24,0
+ 361 0074 90E0      		ldi r25,0
+ 362 0076 00C0      		rjmp .L23
+ 363               	.L24:
+ 364 0078 8091 0000 		lds r24,circBuffer
+ 365 007c 84FF      		sbrs r24,4
+ 366 007e 00C0      		rjmp .L27
+ 367 0080 E0E0      		ldi r30,lo8(circBuffer)
+ 368 0082 F0E0      		ldi r31,hi8(circBuffer)
+ 369 0084 A381      		ldd r26,Z+3
+ 370 0086 B481      		ldd r27,Z+4
+ 371 0088 2781      		ldd r18,Z+7
+ 372 008a 3085      		ldd r19,Z+8
+ 373 008c A20F      		add r26,r18
+ 374 008e B31F      		adc r27,r19
+ 375 0090 9C93      		st X,r25
+ 376 0092 C181      		ldd r28,Z+1
+ 377 0094 D281      		ldd r29,Z+2
+ 378 0096 8781      		ldd r24,Z+7
+ 379 0098 9085      		ldd r25,Z+8
+ 380 009a 0196      		adiw r24,1
+ 381 009c BE01      		movw r22,r28
+ 382 009e 0E94 0000 		call __udivmodhi4
+ 383 00a2 9087      		std Z+8,r25
+ 384 00a4 8783      		std Z+7,r24
+ 385 00a6 8581      		ldd r24,Z+5
+ 386 00a8 9681      		ldd r25,Z+6
+ 387 00aa 0196      		adiw r24,1
+ 388 00ac BE01      		movw r22,r28
+ 389 00ae 0E94 0000 		call __udivmodhi4
+ 390 00b2 9683      		std Z+6,r25
+ 391 00b4 8583      		std Z+5,r24
+ 392 00b6 8185      		ldd r24,Z+9
+ 393 00b8 9285      		ldd r25,Z+10
+ 394 00ba 31E0      		ldi r19,lo8(1)
+ 395 00bc C817      		cp r28,r24
+ 396 00be D907      		cpc r29,r25
+ 397 00c0 01F0      		breq .L28
+ 398 00c2 30E0      		ldi r19,0
+ 399               	.L28:
+ 400 00c4 21E0      		ldi r18,lo8(1)
+ 401 00c6 892B      		or r24,r25
+ 402 00c8 01F0      		breq .L26
+ 403 00ca 20E0      		ldi r18,0
+ 404 00cc 00C0      		rjmp .L26
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 8
+
+
+ 405               	.L27:
+ 406 00ce E0E0      		ldi r30,lo8(circBuffer)
+ 407 00d0 F0E0      		ldi r31,hi8(circBuffer)
+ 408 00d2 8081      		ld r24,Z
+ 409 00d4 877F      		andi r24,lo8(~(1<<3))
+ 410 00d6 8083      		st Z,r24
+ 411 00d8 81E2      		ldi r24,lo8(33)
+ 412 00da 90E0      		ldi r25,0
+ 413 00dc 00C0      		rjmp .L23
+ 414               	.L30:
+ 415 00de 84E0      		ldi r24,lo8(4)
+ 416 00e0 90E0      		ldi r25,0
+ 417               	.L23:
+ 418 00e2 9093 0000 		sts circBuffer+11+1,r25
+ 419 00e6 8093 0000 		sts circBuffer+11,r24
+ 420               	/* epilogue start */
+ 421 00ea DF91      		pop r29
+ 422 00ec CF91      		pop r28
+ 423 00ee 0895      		ret
+ 424               	.L31:
+ 425 00f0 8AE0      		ldi r24,lo8(10)
+ 426 00f2 90E0      		ldi r25,0
+ 427 00f4 00C0      		rjmp .L23
+ 428               	.L32:
+ 429 00f6 8FE0      		ldi r24,lo8(15)
+ 430 00f8 90E0      		ldi r25,0
+ 431 00fa 00C0      		rjmp .L23
+ 433               		.section	.text._GLOBAL__sub_I_circBuffer,"ax",@progbits
+ 435               	_GLOBAL__sub_I_circBuffer:
+ 436               	/* prologue: function */
+ 437               	/* frame size = 0 */
+ 438               	/* stack size = 0 */
+ 439               	.L__stack_usage = 0
+ 440 0000 E0E0      		ldi r30,lo8(circBuffer)
+ 441 0002 F0E0      		ldi r31,hi8(circBuffer)
+ 442 0004 8081      		ld r24,Z
+ 443 0006 1482      		std Z+4,__zero_reg__
+ 444 0008 1382      		std Z+3,__zero_reg__
+ 445 000a 8966      		ori r24,lo8(105)
+ 446 000c 1282      		std Z+2,__zero_reg__
+ 447 000e 1182      		std Z+1,__zero_reg__
+ 448 0010 1286      		std Z+10,__zero_reg__
+ 449 0012 1186      		std Z+9,__zero_reg__
+ 450 0014 897F      		andi r24,lo8(-7)
+ 451 0016 8F7E      		andi r24,lo8(~(1<<4))
+ 452 0018 8083      		st Z,r24
+ 453 001a 1682      		std Z+6,__zero_reg__
+ 454 001c 1582      		std Z+5,__zero_reg__
+ 455 001e 1086      		std Z+8,__zero_reg__
+ 456 0020 1782      		std Z+7,__zero_reg__
+ 457 0022 1486      		std Z+12,__zero_reg__
+ 458 0024 1386      		std Z+11,__zero_reg__
+ 459               	/* epilogue start */
+ 460 0026 0895      		ret
+ 462               		.global __do_global_ctors
+ 463               		.section .ctors,"a",@progbits
+ 464               		.p2align	1
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 9
+
+
+ 465 0000 0000      		.word	gs(_GLOBAL__sub_I_circBuffer)
+ 466               		.section	.text._GLOBAL__sub_D_circBuffer,"ax",@progbits
+ 468               	_GLOBAL__sub_D_circBuffer:
+ 469               	/* prologue: function */
+ 470               	/* frame size = 0 */
+ 471               	/* stack size = 0 */
+ 472               	.L__stack_usage = 0
+ 473 0000 8091 0000 		lds r24,circBuffer+3
+ 474 0004 9091 0000 		lds r25,circBuffer+3+1
+ 475 0008 0097      		sbiw r24,0
+ 476 000a 01F0      		breq .L34
+ 477 000c 0E94 0000 		call free
+ 478               	.L34:
+ 479               	/* epilogue start */
+ 480 0010 0895      		ret
+ 482               		.global __do_global_dtors
+ 483               		.section .dtors,"a",@progbits
+ 484               		.p2align	1
+ 485 0000 0000      		.word	gs(_GLOBAL__sub_D_circBuffer)
+ 486               	.global	circBuffer
+ 487               		.section	.bss.circBuffer,"aw",@nobits
+ 490               	circBuffer:
+ 491 0000 0000 0000 		.zero	13
+ 491      0000 0000 
+ 491      0000 0000 
+ 491      00
+ 492               		.ident	"GCC: (GNU) 12.1.0"
+ 493               	.global __do_clear_bss
+GAS LISTING C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:2      *ABS*:000000000000003e __SP_H__
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:3      *ABS*:000000000000003d __SP_L__
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:4      *ABS*:000000000000003f __SREG__
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:5      *ABS*:0000000000000000 __tmp_reg__
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:6      *ABS*:0000000000000001 __zero_reg__
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:11     .text._Z7getTickv:0000000000000000 _Z7getTickv
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:25     .text.main:0000000000000000 main
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:490    .bss.circBuffer:0000000000000000 circBuffer
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:200    .text.main:0000000000000148 L0
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:289    .text.main:00000000000001f8 L0
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:300    .text._Z30usartReceptionCompleteCallbackv:0000000000000000 _Z30usartReceptionCompleteCallbackv
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:435    .text._GLOBAL__sub_I_circBuffer:0000000000000000 _GLOBAL__sub_I_circBuffer
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:468    .text._GLOBAL__sub_D_circBuffer:0000000000000000 _GLOBAL__sub_D_circBuffer
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:78     .text.main:000000000000005c .L3
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:124    .text.main:00000000000000b8 .L4
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:242    .text.main:0000000000000198 .L5
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:132    .text.main:00000000000000c6 .L9
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:182    .text.main:0000000000000124 .L8
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:163    .text.main:0000000000000100 .L7
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:293    .text.main:00000000000001fe .L18
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:204    .text.main:000000000000014e .L13
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:142    .text.main:00000000000000d8 .L10
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:224    .text.main:0000000000000174 .L12
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:414    .text._Z30usartReceptionCompleteCallbackv:00000000000000de .L30
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:424    .text._Z30usartReceptionCompleteCallbackv:00000000000000f0 .L31
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:428    .text._Z30usartReceptionCompleteCallbackv:00000000000000f6 .L32
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:363    .text._Z30usartReceptionCompleteCallbackv:0000000000000078 .L24
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:350    .text._Z30usartReceptionCompleteCallbackv:0000000000000060 .L26
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:417    .text._Z30usartReceptionCompleteCallbackv:00000000000000e2 .L23
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:405    .text._Z30usartReceptionCompleteCallbackv:00000000000000ce .L27
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:399    .text._Z30usartReceptionCompleteCallbackv:00000000000000c4 .L28
+C:\Users\letic\AppData\Local\Temp\cc0KQ1Sh.s:478    .text._GLOBAL__sub_D_circBuffer:0000000000000010 .L34
+
+UNDEFINED SYMBOLS
+usart0
+_ZN6Usart04initEv
+__iob
+usartStream
+free
+calloc
+_ZN16ProcessarPackageC1EPcS0_
+__udivmodhi4
+__do_global_ctors
+__do_global_dtors
+__do_clear_bss
